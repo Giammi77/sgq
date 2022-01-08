@@ -40,13 +40,13 @@ class Table(object):
         return self.newrecord(codice='10', descrizione='Piano Montaggio Uso e Smontaggio Ponteggio (PiMUS)')
     @metadata(mandatory=True)
     def sysRecord_11(self):
-        return self.newrecord(codice='11', descrizione='Analisi massive preliminari (Amianto)')
+        return self.newrecord(codice='11', descrizione='Analisi massive (Amianto)')
     @metadata(mandatory=True)
     def sysRecord_12(self):
-        return self.newrecord(codice='12', descrizione='Analisi massive preliminari (FAV)')
+        return self.newrecord(codice='12', descrizione='Analisi massive (FAV)')
     @metadata(mandatory=True)
     def sysRecord_13(self):
-        return self.newrecord(codice='13', descrizione='Analisi ambientali preliminari (MOCF)')
+        return self.newrecord(codice='13', descrizione='Analisi ambientali (MOCF)')
     @metadata(mandatory=True)
     def sysRecord_14(self):
         return self.newrecord(codice='14', descrizione='Verbale prova fumi')

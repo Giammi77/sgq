@@ -39,7 +39,7 @@ class Form(BaseComponent):
         tc = bc.tabContainer(region='center')
 
         tc.contentPane(title='Attività Previste').inlineTableHandler(relation='@attivita_piano_qualita',
-                                            datapath='.attivita',viewResource='ViewFromPianoQualita',addrow=False,
+                                            datapath='.attivita',viewResource='ViewFromPianoQualita',addrow=True,
                                             picker='tipo_attivita_codice')
 
         tc.contentPane(title='Pianificazione Lavori').inlineTableHandler(relation='@reg_pianif_lav',
@@ -47,7 +47,7 @@ class Form(BaseComponent):
                                             picker='tipo_lavoro_codice')
 
         tc.contentPane(title='Apprivvigionamento Materiali - Attrezzature').inlineTableHandler(relation='@reg_risorse',
-                                            datapath='.registro_risorse',viewResource='ViewFromPianoQualita',addrow=False,
+                                            datapath='.registro_risorse',viewResource='ViewFromPianoQualita',addrow=True,
                                             picker='tipo_risorsa_codice')
 
         tc.contentPane(title='Esecuzione Lavori').inlineTableHandler(relation='@reg_lavori',
@@ -55,11 +55,11 @@ class Form(BaseComponent):
                                             picker='tipo_lavoro_esec_codice')
                                             
         tc.contentPane(title='Prove  e Controlli Finali').inlineTableHandler(relation='@reg_prove',
-                                            datapath='.registro_prove',viewResource='ViewFromPianoQualita',addrow=False,
+                                            datapath='.registro_prove',viewResource='ViewFromPianoQualita',addrow=True,
                                             picker='tipo_prova_codice')
 
         tc.contentPane(title='Non Conformità').inlineTableHandler(relation='@reg_non_conformita',
-                                            datapath='.registro_non_conformita',viewResource='ViewFromPianoQualita',addrow=False,
+                                            datapath='.registro_non_conformita',viewResource='ViewFromPianoQualita',addrow=True,
                                             picker='tipo_non_conformita_codice') 
 
     def datiGenerali(self,frame):
