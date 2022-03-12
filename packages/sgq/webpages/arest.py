@@ -34,7 +34,7 @@ class GnrCustomWebPage(object):
         return 'messaggio arrivato'
 
     @public_method
-    def inclinometro(self, **kwargs):
+    def inclinometro(self, valore=None,**kwargs):
         request = self.request._request
         response = self.response._response
         if request.method == 'POST':
