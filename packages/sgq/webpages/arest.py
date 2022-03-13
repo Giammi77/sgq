@@ -42,7 +42,7 @@ class GnrCustomWebPage(object):
             val = a[:sep]
             page_id = a[sep+1:]
             
-            # self.setInClientData('debug',value='pippo',page_id=page_id,fired=True)
+            self.setInClientData('valore',value=val,page_id=page_id,fired=True)
             return a
         return 'return della get dal server'
 
