@@ -38,8 +38,10 @@ class GnrCustomWebPage(object):
         request = self.request._request
         response = self.response._response
         if request.method == 'POST':
-            return str(5)
-        return str(2)
+            incoming_message = json.loads(request.data.decode('utf-8'))
+
+            return incoming_message
+        return 
 
 
 
