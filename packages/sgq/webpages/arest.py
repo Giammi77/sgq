@@ -37,7 +37,7 @@ class GnrCustomWebPage(object):
         request = self.request._request
         response = self.response._response
         if request.method == 'POST':
-            a = incoming_message = request.data.decode('utf-8')
+            a = incoming_message = str(request.data.decode('utf-8'))
             sep = a.find(';')
             val = a[:sep]
             page_id = a[sep+1:]
