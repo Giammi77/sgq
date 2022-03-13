@@ -43,7 +43,7 @@ class GnrCustomWebPage(object):
             page_id = a[sep+1:]
             
             # self.setInClientData('debug',value='pippo',page_id=page_id,fired=True)
-            return page_id
+            return a
         return 'return della get dal server'
 
 
