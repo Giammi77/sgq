@@ -31,17 +31,14 @@ class GnrCustomWebPage(object):
             incoming_message = json.loads(request.data.decode('utf-8'))
             # self.recordFromMessage(incoming_message=incoming_message)
         print(incoming_message)
-        return 'messaggio arrivato'
-
+    
     @public_method
     def inclinometro(self, valore=None,**kwargs):
         request = self.request._request
         response = self.response._response
         if request.method == 'POST':
-            incoming_message = json.loads(request.data.decode('utf-8'))
-
-            return incoming_message
-        return 
+            # incoming_message = json.loads(request.data.decode('utf-8'))
+            return str(valore)
 
 
 
