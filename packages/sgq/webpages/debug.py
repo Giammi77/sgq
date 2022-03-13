@@ -6,6 +6,10 @@ class GnrCustomWebPage(object):
     py_requires = 'th/th:TableHandler'
     css_requires=''
 
-    def main(self,pane,**kwargs):     
-        
-        pane.div("Inclinometro pagina di debug:")
+    def main(self,root,**kwargs):     
+        bc = root.borderContainer()
+        bc.contentPane(region='top', height='10%').div("Inclinometro pagina di debug:")
+        fb = bc.contentPane(region='center').formbuilder()
+        fb.textBox(value='^gnr.page_id',lbl='page_id',edit=False)
+        fb.data('valore',None,serverpath='valore', dbenv=True)
+        fb.textBox(value = '^valore', width='10em', lbl='valore')
