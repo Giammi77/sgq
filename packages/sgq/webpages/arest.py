@@ -37,11 +37,11 @@ class GnrCustomWebPage(object):
         request = self.request._request
         response = self.response._response
         if request.method == 'POST':
-            # incoming_message = json.loads(request.data.decode('utf-8'))
+            incoming_message = json.loads(request.data.decode('utf-8'))
             
             # self.setInClientData('debug',value='pippo',page_id=page_id,fired=True)
-            return 'pippo'
-        return 'OK'
+            return str(incoming_message)
+        return 'return della get dal server'
 
 
 
