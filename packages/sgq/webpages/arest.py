@@ -40,7 +40,7 @@ class GnrCustomWebPage(object):
             # incoming_message = json.loads(request.data.decode('utf-8'))
             
             # self.setInClientData('debug',value='pippo',page_id=page_id,fired=True)
-            return str(valore)
+            return 'pippo'
         return 'OK'
 
 
