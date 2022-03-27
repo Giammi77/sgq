@@ -24,7 +24,7 @@ class GnrCustomWebPage(object):
 
         fb.dataRpc('result',
                         self.setInClient,
-                        pageId = "^gnr.page_id",
+                        pageId = "=gnr.page_id",
                         _fired='^rpc')
 
 
