@@ -15,22 +15,39 @@ class GnrCustomWebPage(object):
     def main(self,root,**kwargs):
         fb = root.contentPane(datapath='wifi').formBuilder(cols=1)
         save=fb.button('Save Page Id')
-        erase=fb.button('Erase Page Id')
+        delete=fb.button('Erase Page Id')
         # fb.button('Inoltra Pec Atto', action="var invioId = GET .id;console.log(invioId); FIRE rcweb_invio.view.th_batch_run = {resource:'genera_pec',res_type:'action',invio_id:invioId};")
         fb.sharedObject('value',shared_id='test',autoLoad=True,autoSave=True,expire=20)
-        set=fb.button('SetInClientData',fire='rpc')
         fb.div("^gnr.page_id")
         fb.textBox(value='^value',lbl='Valore:')
 
-        fb.dataRpc('result',
-                        self.setInClient,
+        save.dataRpc('result',
+                        self.savePageId,
                         pageId = "=gnr.page_id",
-                        _fired='^rpc')
+                    )
+        delete.dataRpc('result',
+                        self.deletePageId,
+                        pageId = "=gnr.page_id",
+                    )
 
 
     @public_method                  
-    def setInClient(self,pageId=None):
-        self.setInClientData('value',value='pippo',page_id=pageId,fired=True)
+    def savePageId(self,pageId=None):
+        tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
+        record=tblConnessioneWifi.newrecord()
+
+        record['page_id'] = pageId
+        record['utente'] ='esp01'
+        self.insert(record)
+        self.db.commit()
+
+    @public_method                  
+    def deletePageId(self,pageId=None):
+        tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
+        tblConnessioneWifi.deleteSelection(where="$utente='esp01'")
+        self.db.commit()
+
+        #self.setInClientData('value',value='pippo',page_id=pageId,fired=True)
        
 
     #     self.fieldsPane(bc.borderContainer(datapath='.shared.info',region='left',border_right='1px solid silver',splitter=True,width='300px'))
