@@ -9,7 +9,7 @@ def config(root,application=None):
     anag = root.branch(u"Anagrafiche")
     anag.thpage(u"!!Committente", table="sgq.committente")
     anag.thpage(u"!!Impresa", table="sgq.anagrafica")
-    anag.thpage(u"!!Collaboratore", table="sgq.collaboratore")
+    anag.thpage(u"!!Compilatore", table="sgq.compilatore")
 
     setup = root.branch(u"Impostazioni")
     setup.thpage(u"!!Ruolo", table="sgq.ruolo")
@@ -19,4 +19,5 @@ def config(root,application=None):
     setup.thpage(u"!!Tipo Prova e Controllo", table="sgq.tipo_prova")
     setup.thpage(u"!!Tipo Non Conformità", table="sgq.tipo_non_conformita")
     setup.thpage(u"!!Attivita Piano Qualita", table="sgq.attivita_piano_qualita")
+    setup.thpage(u"!!Connessione wifi", table="sgq.connessione_wifi")
 
