@@ -11,6 +11,7 @@ class GnrCustomWebPage(object):
 
     @public_method
     def arest(self, **kwargs):
+        
         request = self.request._request
         response = self.response._response
         # app_token = self.site.getPreference('subscription_token', pkg='rcweb')
@@ -20,12 +21,11 @@ class GnrCustomWebPage(object):
         #     raise GnrBasicAuthenticationError('Wrong Authorization Login')
         
         if self.request.method == 'GET':
-            print('GET')
-            # if kwargs['verify_token'] == token:
-            #     return kwargs['challenge']
-            # else:
-            #     self.response.status_code = 403
-            #     return 'Access forbidden'
+            tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
+            a = incoming_message = str(request.data.decode('utf-8'))
+            return a
+            
+            
         elif request.method == 'POST':
             print('POST')
             incoming_message = json.loads(request.data.decode('utf-8'))
