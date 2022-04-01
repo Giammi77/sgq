@@ -23,7 +23,9 @@ class GnrCustomWebPage(object):
         if self.request.method == 'GET':
             tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
             a = incoming_message = str(request.data.decode('utf-8'))
-            return a
+            b = kwargs.get('sensore')
+            
+            return b
             
             
         elif request.method == 'POST':
