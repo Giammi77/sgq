@@ -22,10 +22,18 @@ class GnrCustomWebPage(object):
         
         if self.request.method == 'GET':
             tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
-            a = incoming_message = str(request.data.decode('utf-8'))
-            b = kwargs.get('sensore')
-            
-            return b
+            sensore = kwargs.get('sensore')
+            if sensore:
+                page_id=tblConnessioneWifi.readColumns(columns='$page_id',
+                                    where='utente=:sensore',
+                                    sensore=sensore,
+                                    limit=1,
+                                    ignoreMissing=True)
+            else:
+                return
+            if page_id:
+                return page_id
+            return 
             
             
         elif request.method == 'POST':
