@@ -13,14 +13,14 @@ class View(BaseComponent):
         r.fieldcell('stato_doc')
         r.fieldcell('luogo')
         r.fieldcell('note')
-        r.fieldcell('collaboratore_id')
+        r.fieldcell('compilatore_id')
         r.fieldcell('data')
 
     def th_order(self):
         return 'piano_qualita_id'
 
     def th_query(self):
-        return dict(column='descrizione', op='contains', val='')
+        return dict(column='descrizione', op='contains', val='',runOnStart=True)
 
 class ViewFromPianoQualita(View):
 
@@ -32,7 +32,7 @@ class ViewFromPianoQualita(View):
         r.fieldcell('stato_doc',edit=True)
         r.fieldcell('luogo',edit=True)
         r.fieldcell('note',edit=True,width='30em')
-        r.fieldcell('collaboratore_id',edit=True)
+        r.fieldcell('compilatore_id',edit=True)
         r.fieldcell('data',edit=True)
 
 
@@ -46,7 +46,7 @@ class Form(BaseComponent):
         fb.field('stato_doc' )
         fb.field('luogo' )
         fb.field('note' )
-        fb.field('collaboratore_id' )
+        fb.field('compilatore_id' )
         fb.field('data' )
 
 
@@ -63,5 +63,5 @@ class FormFromPianoQualta(Form):
         fb.field('stato_doc' )
         fb.field('luogo' )
         fb.field('note' )
-        fb.field('collaboratore_id' )
+        fb.field('compilatore_id' )
         fb.field('data' )

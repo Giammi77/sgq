@@ -18,7 +18,7 @@ class View(BaseComponent):
         return 'anagrafica_id'
 
     def th_query(self):
-        return dict(column='anagrafica_id', op='contains', val='')
+        return dict(column='anagrafica_id', op='contains', val='',runOnStart=True)
 
 class ViewFromAnagrafica(View):
     pass

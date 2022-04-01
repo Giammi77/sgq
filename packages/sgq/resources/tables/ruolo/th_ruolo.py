@@ -15,7 +15,7 @@ class View(BaseComponent):
         return 'codice'
 
     def th_query(self):
-        return dict(column='codice', op='contains', val='')
+        return dict(column='codice', op='contains', val='',runOnStart=True)
 
 
 

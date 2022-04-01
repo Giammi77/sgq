@@ -11,8 +11,8 @@ class Table(object):
         tbl.column ('stato_doc',size=':2', name_long='Stato Documento', values='S:Presente,N:Non Presente,NP:Non Pertinente')#, validate_notnull=True)
         tbl.column('luogo', name_long='Luogo', values='M:Magazzino,C:Cantiere')
         tbl.column('note', name_long='Note')
-        tbl.column('collaboratore_id',size='22', group='_', name_long='Compilatore'
-                    ).relation('collaboratore.id', relation_name='reg_risorse', mode='foreignkey', onDelete='raise')
+        tbl.column('compilatore_id',size='22', group='_', name_long='Compilatore'
+                    ).relation('compilatore.id', relation_name='reg_risorse', mode='foreignkey', onDelete='raise')
         tbl.column('data', dtype='D', name_long='Data')
 
    

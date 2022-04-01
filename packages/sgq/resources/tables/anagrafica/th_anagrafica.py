@@ -30,7 +30,7 @@ class View(BaseComponent):
         return 'rag_sociale'
 
     def th_query(self):
-        return dict(column='rag_sociale', op='contains', val='')
+        return dict(column='rag_sociale', op='contains', val='',runOnStart=True)
 
 
 class Form(BaseComponent):
@@ -38,10 +38,10 @@ class Form(BaseComponent):
     def th_form(self, form):
         bc = form.center.borderContainer()
         self.datiImpresa(bc.contentPane(region='top', datapath='.record').div().formBuilder(cols=2, border_spacing='4px'))
-        bc.tabContainer(region='center').contentPane(title='Collaboratori', datapath='collaboratori').dialogTableHandler(relation='@collaboratore',
+        bc.tabContainer(region='center').contentPane(title='Compilatori', datapath='compilatori').dialogTableHandler(relation='@compilatore',
                                                                                     viewResource='ViewFromAnagrafica',
                                                                                     formResource='FormFromAnagrafica',
-                                                                                    dialog_windowRatio='0.2',)
+                                                                                    dialog_windowRatio='0.4',)
 
     def datiImpresa(self,fb):
         fb.field('rag_sociale')
