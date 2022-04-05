@@ -7,10 +7,10 @@ import json
 
 
 class GnrCustomWebPage(object):
-    py_requires = 'gnrcomponents/externalcall:BaseRpc' 
+    py_requires = 'gnrcomponents/externalcall:BaseRpc'
 
     @public_method
-    def inclinometro(self, valore=None,**kwargs):
+    def arest(self, **kwargs):
         request = self.request._request
         response = self.response._response
 
@@ -27,18 +27,21 @@ class GnrCustomWebPage(object):
                 return
             if page_id:
                 return page_id
-            return
-        else:
-            if request.method == 'POST':
-                a = incoming_message = str(request.data.decode('utf-8'))
-                sep = a.find(';')
-                val = a[:sep]
-                page_id = a[sep+1:]
-            
-                self.setInClientData('value',value=val,page_id=page_id,fired=True)
-                return a
+            return 
 
-            return 'False'
+    @public_method
+    def inclinometro(self, valore=None,**kwargs):
+        request = self.request._request
+        response = self.response._response
+        if request.method == 'POST':
+            a = incoming_message = str(request.data.decode('utf-8'))
+            sep = a.find(';')
+            val = a[:sep]
+            page_id = a[sep+1:]
+            
+            self.setInClientData('value',value=val,page_id=page_id,fired=True)
+            return a
+        return 'return della get dal server'
 
 
 
