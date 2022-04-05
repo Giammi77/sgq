@@ -19,7 +19,7 @@ class GnrCustomWebPage(object):
         delete=fb.button('Erase Page Id')
         fb.sharedObject('value',shared_id='test',autoLoad=True,autoSave=True,expire=20)
         fb.div("^gnr.page_id",lbl='Page Id')
-        fb.textBox(value='value',lbl='Valore:')
+        fb.textBox(value='^value',lbl='Valore:')
 
 
         save.dataRpc('result',
