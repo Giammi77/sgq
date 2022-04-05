@@ -1,4 +1,4 @@
 <?xml version="1.0" ?>
 <GenRoBag>
-	<wsgi mainpackage="sgq" websockets="True"/>
+	<wsgi mainpackage="sgq"/>
 </GenRoBag>
