@@ -7,19 +7,13 @@ import json
 
 
 class GnrCustomWebPage(object):
-    py_requires = 'gnrcomponents/externalcall:BaseRpc'
+    py_requires = 'gnrcomponents/externalcall:BaseRpc' 
 
     @public_method
-    def arest(self, **kwargs):
-        
+    def inclinometro(self, valore=None,**kwargs):
         request = self.request._request
         response = self.response._response
-        # app_token = self.site.getPreference('subscription_token', pkg='rcweb')
-        # received_token = self.request.headers.get('Authorization')
 
-        # if app_token != received_token:
-        #     raise GnrBasicAuthenticationError('Wrong Authorization Login')
-        
         if self.request.method == 'GET':
             tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
             sensore = kwargs.get('sensore')
@@ -33,28 +27,18 @@ class GnrCustomWebPage(object):
                 return
             if page_id:
                 return page_id
-            return 
+            return
+        else:
+            if request.method == 'POST':
+                a = incoming_message = str(request.data.decode('utf-8'))
+                sep = a.find(';')
+                val = a[:sep]
+                page_id = a[sep+1:]
             
-            
-        elif request.method == 'POST':
-            print('POST')
-            incoming_message = json.loads(request.data.decode('utf-8'))
-            # self.recordFromMessage(incoming_message=incoming_message)
-        print(incoming_message)
-    
-    @public_method
-    def inclinometro(self, valore=None,**kwargs):
-        request = self.request._request
-        response = self.response._response
-        if request.method == 'POST':
-            a = incoming_message = str(request.data.decode('utf-8'))
-            sep = a.find(';')
-            val = a[:sep]
-            page_id = a[sep+1:]
-            
-            self.setInClientData('value',value=val,page_id=page_id,fired=True)
-            return a
-        return 'return della get dal server'
+                self.setInClientData('value',value=val,page_id=page_id,fired=True)
+                return a
+
+            return 'False'
 
 
 

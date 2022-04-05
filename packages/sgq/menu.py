@@ -20,4 +20,4 @@ def config(root,application=None):
     setup.thpage(u"!!Tipo Non Conformità", table="sgq.tipo_non_conformita")
     setup.thpage(u"!!Attivita Piano Qualita", table="sgq.attivita_piano_qualita")
     setup.thpage(u"!!Connessione wifi", table="sgq.connessione_wifi")
-
+    setup.webpage(u"!!Pagina Inclinometro", filepath="/sgq/wifi")
