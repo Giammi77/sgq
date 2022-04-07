@@ -14,12 +14,17 @@ class GnrCustomWebPage(object):
 
     def main(self,root,**kwargs):
         bc=root.borderContainer()
+        bc.data('offset',0)
         fb = bc.contentPane(region='top', height='50%',datapath='wifi').formBuilder(cols=1)
         save=fb.button('Save Page Id')
         delete=fb.button('Erase Page Id')
         fb.sharedObject('value',shared_id='test',autoLoad=True,autoSave=True,expire=20)
         fb.div("^gnr.page_id",lbl='Page Id')
+        delete=fb.button('Set Offset')
         fb.textBox(value='^value',lbl='Valore:')
+        fb.textBox(value='^offset',lbl='Valore Offset:')
+        fb.dataFormula('.newValue','v-o', v='^.value', o='^.offset')
+        fb.textBox(value='^newValue',lbl='New Valore:')
 
 
         save.dataRpc('result',
