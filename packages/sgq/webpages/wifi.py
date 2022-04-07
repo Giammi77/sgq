@@ -20,7 +20,7 @@ class GnrCustomWebPage(object):
         delete=fb.button('Erase Page Id')
         fb.sharedObject('value',shared_id='test',autoLoad=True,autoSave=True,expire=20)
         fb.div("^gnr.page_id",lbl='Page Id')
-        delete=fb.button('Set Offset')
+        offset=fb.button('Set Offset', action="SET offset=value", value='^value')
         fb.textBox(value='^value',lbl='Valore:')
         fb.textBox(value='^offset',lbl='Valore Offset:')
         fb.dataFormula('.newValue','v-o', v='^.value', o='^.offset')
