@@ -21,10 +21,10 @@ class GnrCustomWebPage(object):
         fb.sharedObject('value',shared_id='test',autoLoad=True,autoSave=True,expire=20)
         fb.div("^gnr.page_id",lbl='Page Id')
         offset=fb.button('Set Offset', action="SET offset=value", value='^value')
-        fb.textBox(value='^value',lbl='Valore:')
-        fb.textBox(value='^offset',lbl='Valore Offset:')
+        fb.numberTextBox(value='^value',lbl='Valore:')
+        fb.numberTextBox(value='^offset',lbl='Valore Offset:')
         fb.dataFormula('.newValue','v-o', v='^.value', o='^.offset')
-        fb.textBox(value='^newValue',lbl='New Valore:')
+        fb.numberTextBox(value='^newValue',lbl='New Valore:')
 
 
         save.dataRpc('result',
