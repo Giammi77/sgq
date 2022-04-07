@@ -11,9 +11,15 @@ class GnrCustomWebPage(object):
 
     @public_method
     def arest(self, **kwargs):
+        
         request = self.request._request
         response = self.response._response
+        # app_token = self.site.getPreference('subscription_token', pkg='rcweb')
+        # received_token = self.request.headers.get('Authorization')
 
+        # if app_token != received_token:
+        #     raise GnrBasicAuthenticationError('Wrong Authorization Login')
+        
         if self.request.method == 'GET':
             tblConnessioneWifi = self.db.table('sgq.connessione_wifi')
             sensore = kwargs.get('sensore')
@@ -28,7 +34,14 @@ class GnrCustomWebPage(object):
             if page_id:
                 return page_id
             return 
-
+            
+            
+        elif request.method == 'POST':
+            print('POST')
+            incoming_message = json.loads(request.data.decode('utf-8'))
+            # self.recordFromMessage(incoming_message=incoming_message)
+        print(incoming_message)
+    
     @public_method
     def inclinometro(self, valore=None,**kwargs):
         request = self.request._request
