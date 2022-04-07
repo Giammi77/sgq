@@ -23,7 +23,7 @@ class GnrCustomWebPage(object):
         offset=fb.button('Set Offset', action="SET offset=value", value='^value')
         fb.numberTextBox(value='^value',lbl='Valore:')
         fb.numberTextBox(value='^offset',lbl='Valore Offset:')
-        fb.dataFormula('.newValue','v-o', v='^.value', o='^.offset')
+        fb.dataFormula('newValue','v-o', v='^.value', o='^.offset')
         fb.numberTextBox(value='^newValue',lbl='New Valore:')
 
 
