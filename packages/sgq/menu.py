@@ -19,5 +19,5 @@ def config(root,application=None):
     setup.thpage(u"!!Tipo Prova e Controllo", table="sgq.tipo_prova")
     setup.thpage(u"!!Tipo Non Conformità", table="sgq.tipo_non_conformita")
     setup.thpage(u"!!Attivita Piano Qualita", table="sgq.attivita_piano_qualita")
-    setup.thpage(u"!!Connessione wifi", table="sgq.connessione_wifi")
-
+    setup.thpage(u"!!Connessione wifi", table="sgq.connessione_wifi")  
+    setup.webpage("wifi", filepath="/sgq/wifi")  
